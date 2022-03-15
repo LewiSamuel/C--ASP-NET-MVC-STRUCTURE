@@ -1,0 +1,26 @@
+﻿@model ContatoModel
+<tr>
+    <th scope="row">@Model.id</th>
+    <td>@Model.Nome</td>
+    <td>@Model.Email</td>
+    <td>@Model.WhatsApp</td>
+    <td>
+        <div class="btn-group" role="group" aria-label="Ações">
+            <a role="button"
+                class="btn btn-success"
+                asp-route-id="@Model.id"
+                asp-controller="Contato"
+                asp-action="Editar">
+                Editar
+            </a>
+
+            <a role="button"
+                class="btn btn-danger"
+                asp-route-id="@Model.id"
+                asp-controller="Contato"
+                asp-action="ApagarConfirm">
+                Excluir
+            </a>
+        </div>
+    </td>
+</tr>

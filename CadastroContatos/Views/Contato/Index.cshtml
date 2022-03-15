@@ -1,0 +1,52 @@
+﻿@model List<ContatoModel>
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<div class="text-center">
+
+    <partial name="global/alert" />
+
+    <br />
+
+    <h1 class="display-4">Contatos</h1>
+
+    <br />
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <a class="btn btn-outline-primary text-primary"
+           asp-controller="Contato"
+           asp-action="Criar">
+            Adicionar contato
+        </a>
+    </div>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">WhatsApp</th>
+                <th scope="col">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            @*
+                Valida se existe o model
+            *@
+            @if (Model != null && Model.Any())
+            {
+                @*
+                    Passa por todos os contatos
+                    e passa o objeto de contato
+                    para a partial rowContato
+                *@
+                foreach (ContatoModel contato in Model)
+                {
+                    <partial name="Criar/rowContato" model="@contato" />
+                }
+            }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,60 @@
+﻿@model ContatoModel
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Editar</h1>
+
+</div>
+
+<form asp-controller="Contato" asp-action="Editar" method="post">
+    @*
+        Id
+    *@
+    <input type="hidden" asp-for="id" />
+    @*
+        Input Nome
+    *@
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text"
+               id="nome"
+               class="form-control"
+               placeholder="Jonh Doe" 
+               asp-for="Nome"/>
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+    @*
+        Input Email
+    *@
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text"
+               id="email"
+               class="form-control"
+               placeholder="jonh.doe@mail.com"
+               asp-for="Email"/>
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    @*
+        Input WhatsApp
+    *@
+    <div class="form-group">
+        <label for="wpp">WhatsApp</label>
+        <input type="text"
+               id="wpp"
+               class="form-control"
+               placeholder="(00) 9999-9999" 
+               asp-for="WhatsApp"/>
+        @Html.ValidationMessageFor(x => x.WhatsApp)
+
+    </div>
+    @*
+        Buttons Form
+    *@
+    <button type="submit" class="btn btn-primary btn-block">Atualizar</button>
+    <a class="btn btn-outline-secondary btn-block" asp-controller="Contato" asp-action="Index">Voltar</a>
+</form>
+
